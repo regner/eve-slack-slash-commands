@@ -53,13 +53,14 @@ def get_server_status(server):
                 'value': '*{}:* {:,d}\n*Version:* {}'.format(status, player_count, version),
                 'short': True,
             }
-            
-    except requests.exceptions.ConnectionError:
-        return {
-            'title': server.capitalize(),
-            'value': '*Offline*',
-            'short': True,
-        }
+    except:
+        pass
+    
+    return {
+        'title': server.capitalize(),
+        'value': '*Offline*',
+        'short': True,
+    }
 
 
 def get_all_server_status():
