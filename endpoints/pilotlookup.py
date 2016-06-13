@@ -15,17 +15,16 @@ class PilotLookup(Resource):
         
         search_name = args['text']
         search_results = get_zkb_character_search(search_name)
-        
-        if len(search_results) <1:
+
+        if len(search_results) < 1:
             return {
-            'response_type': 'in_channel',
-            'color': '#36a64f',
-            'text': 'No results could be found for the character {}.'.format(search_name),
-            'fallback': 'No results could be found for the character {}.'.format(search_name),
-        }
+                'response_type': 'in_channel',
+                'color': '#36a64f',
+                'text': 'No results could be found for the character {}.'.format(search_name),
+                'fallback': 'No results could be found for the character {}.'.format(search_name),
+            }
         
         character = search_results[0]
-        
         
         character_id = character['id']
         character_name = character['name']
